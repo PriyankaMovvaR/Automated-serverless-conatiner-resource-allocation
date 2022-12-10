@@ -114,6 +114,27 @@ public class ContainerAllocationPolicySimple extends ContainerAllocationPolicy {
 		return threshold;
 	}
 
+
+	@Override
+	public boolean allocateVmForContainer(Container container, ContainerVm containerVm) {
+		if (containerVm.containerCreate(container)) { // if vm has been succesfully created in the host
+			getContainerVmTable().put(container.getUid(), containerVm);
+
+			int requiredPes = container.getNumberOfPes();
+			int idx = getContainerVmList().indexOf(container);
+			getUsedPes().put(container.getUid(), requiredPes);
+			getFreePes().set(idx, getFreePes().get(idx) - requiredPes);
+
+			Log.formatLine(
+					" Container #" + container.getId() + " has been allocated to the Vm #" + containerVm.getId());
+			return true;
+		}
+
+		
+		return false;
+	}
+
+
 	@Override
 	public List<Map<String, Object>> optimizeAllocation(List<? extends Container> containerList) {
 		return null;

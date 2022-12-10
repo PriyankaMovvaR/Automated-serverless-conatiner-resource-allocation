@@ -6,7 +6,6 @@ Table of Contents
 3. Running the project.
 
 
-
 1. Directory structure of the CloudSim Toolkit
 ----------------------------------------------
 
