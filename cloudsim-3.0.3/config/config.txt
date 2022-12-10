@@ -57,6 +57,7 @@ scheduler.method= MINMIN_SCH
 deadline = 90
 
 ######Please replace it with your real physical path
-dax.path = /Users/chenweiwei/Work/WorkflowSim-1.0/config/dax/Montage_100.xml
+dax.path = /Users/Priyanka Movva R/Downloads/OsProject/Automated-serverless-conatiner-res
+ource-allocation/cloudsim-3.0.3/config/dax/Montage_100.xml
 ######Reducer mode used to remove duplicate dependencies
 #reduce.method	= montage
